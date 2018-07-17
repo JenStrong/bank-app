@@ -10,8 +10,8 @@ describe Account do
 
       account.credit(first_transaction)
 
-      expect(account.account_summary).to eq [first_transaction]
-
+      expect(account.account_summary).to eq [first_transaction, balance: 500.00]
+      expect(account.balance).to eq first_transaction.amount
     end
 
   end
