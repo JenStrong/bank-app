@@ -16,4 +16,9 @@ class Account
     @account_summary.push(transaction, balance: @balance)
   end
 
+  def debit(transaction)
+    @balance -= transaction.amount
+    @account_summary.push(transaction, balance: @balance)
+  end
+
 end
