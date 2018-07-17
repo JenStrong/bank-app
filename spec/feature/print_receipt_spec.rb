@@ -8,7 +8,7 @@ describe 'printing a receipt' do
   it 'prints a summary of transactions on an account' do
 
     account.credit(first_transaction)
-    acount.debit(second_transaction)
+    account.debit(second_transaction)
 
     receipt = account.print_receipt
 
