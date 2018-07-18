@@ -11,7 +11,7 @@ describe Account do
       it 'credits money into an account' do
         account.credit(credit_transaction)
 
-        expect(account.account_summary).to eq [credit_transaction, 500.00]
+        expect(account.account_summary).to eq [[credit_transaction, 500.00]]
         expect(account.balance).to eq 500.00
       end
     end
@@ -20,7 +20,7 @@ describe Account do
       it 'debits money from an account' do
         account.debit(debit_transaction)
 
-        expect(account.account_summary).to eq [debit_transaction, -500.00]
+        expect(account.account_summary).to eq [[debit_transaction, -500.00]]
         expect(account.balance).to eq -500.00
       end
     end

@@ -2,8 +2,8 @@ describe 'banking app' do
 
   let(:formatter) { Formatter.new }
   let(:account) { Account.new(formatter) }
-  let(:credit_transaction) { Transaction.new(500.00, "07-17-2018", :credit) }
-  let(:debit_transaction) { Transaction.new(400.00, "07-18-2018", :debit) }
+  let(:credit_transaction) { Transaction.new(500.00, "17/07/2018", :credit) }
+  let(:debit_transaction) { Transaction.new(400.00, "18/07/2018", :debit) }
 
   it 'prints a summary of transactions on an account' do
 
