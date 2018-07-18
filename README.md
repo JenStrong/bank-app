@@ -17,11 +17,7 @@ This is a CLI Ruby app that generates a bank account summary table based on the 
     $ bundle install
 ```
 
-## Running Tests
-Run `rspec` from the project's root directory
-
-
-### Process
+## Process
 This project was written using a TDD approach. My process is listed below:
 1. Review application specifications and write corresponding user stories (see below)
 2. Diagram the needed objects and the flow of information between them
@@ -32,6 +28,12 @@ This project was written using a TDD approach. My process is listed below:
 7. Refactor as needed
 8. Continue adding and passing unit tests based on the direction from the failing feature test
 
+
+## Running Tests
+Run `rspec` from the project's root directory
+
+## Test Coverage
+![alt text](https://github.com/JenStrong/bank-tech-test/blob/master/public/test_coverage.png)
 
 ## User Stories
 
