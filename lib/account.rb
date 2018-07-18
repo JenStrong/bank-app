@@ -18,7 +18,6 @@ class Account
 
   def debit(transaction)
     self.balance -= transaction.amount
-    transaction.amount = (-transaction.amount)
     account_summary.push(transaction, balance)
   end
 
