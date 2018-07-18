@@ -1,12 +1,12 @@
 require 'pry'
-require 'printer'
+require 'formatter'
 
 class Account
 
   attr_accessor :account_summary, :balance
 
-  def initialize(printer = Printer.new)
-    @printer = printer
+  def initialize(formatter = Formatter.new)
+    @formatter = formatter
     @account_summary = []
     @balance = 0.00
   end
