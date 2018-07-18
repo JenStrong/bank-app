@@ -1,5 +1,4 @@
-require 'pry'
-require 'formatter'
+require_relative 'formatter'
 
 class Account
 
