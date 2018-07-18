@@ -1,10 +1,11 @@
 require 'pry'
+require 'date'
 
 class Transaction
 
-  attr_accessor :amount
+  attr_reader :amount, :type, :date
 
-  def initialize(amount, date = Time.new, type)
+  def initialize(amount, date = Date.today, type)
     @amount = amount
     @date = date
     @type = type
