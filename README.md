@@ -6,6 +6,9 @@ This is a CLI Ruby app that generates a bank account summary table based on the 
   2. Build with objects
   3. Test-drive my code
 
+## How it Works
+![alt text](https://github.com/JenStrong/bank-tech-test/blob/master/public/out.gif)
+
 ## Getting Started
   Use Ruby 2.5.1
 ```
@@ -71,6 +74,3 @@ date || credit || debit || balance
 12/04/2018 || || 400.00 || 100.00
 10/04/2018 || 500.00 || || 500.00 => nil
 ```
-
-
-![alt text](https://github.com/JenStrong/bank-tech-test/blob/master/public/out.gif)
