@@ -3,7 +3,7 @@ require 'formatter'
 
 class Account
 
-  attr_accessor :account_summary, :balance
+  attr_accessor :formatter, :account_summary, :balance
 
   def initialize(formatter = Formatter.new)
     @formatter = formatter
@@ -19,6 +19,10 @@ class Account
   def debit(transaction)
     self.balance -= transaction.amount
     account_summary.push(transaction, balance)
+  end
+
+  def statement
+    formatter.output_summary
   end
 
 end
