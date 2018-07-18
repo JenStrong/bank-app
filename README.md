@@ -50,3 +50,24 @@ I would like to see an account summary
 ```
 
 ## Example CLI output
+```
+Jens-MacBook-Air:tech-test jstrong$ irb
+2.5.1 :001 > require './lib/account.rb'
+ => true
+2.5.1 :002 > require './lib/transaction.rb'
+ => true
+2.5.1 :003 > account = Account.new
+ => #<Account:0x00007fde5e8a15f8 @formatter=#<Formatter:0x00007fde5e8a1580>, @account_summary=[], @balance=0.0>
+2.5.1 :004 > credit_transaction = Transaction.new(500.00, "10/04/2018", :credit)
+ => #<Transaction:0x00007fde5d04ec58 @amount=500.0, @date="10/04/2018", @type=:credit>
+2.5.1 :005 > account.credit(credit_transaction)
+ => [[#<Transaction:0x00007fde5d04ec58 @amount=500.0, @date="10/04/2018", @type=:credit>, 500.0]]
+2.5.1 :006 > debit_transaction = Transaction.new(400.00, "12/04/2018", :debit)
+ => #<Transaction:0x00007fde5e83b7a8 @amount=400.0, @date="12/04/2018", @type=:debit>
+2.5.1 :007 > account.debit(debit_transaction)
+ => [[#<Transaction:0x00007fde5d04ec58 @amount=500.0, @date="10/04/2018", @type=:credit>, 500.0], [#<Transaction:0x00007fde5e83b7a8 @amount=400.0, @date="12/04/2018", @type=:debit>, 100.0]]
+2.5.1 :008 > print account.statement
+date || credit || debit || balance
+12/04/2018 || || 400.00 || 100.00
+10/04/2018 || 500.00 || || 500.00 => nil
+```
