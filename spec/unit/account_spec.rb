@@ -1,26 +1,28 @@
 require 'account'
+require 'transaction'
 
 describe Account do
   subject(:account) { described_class.new }
-  let(:transaction) { Transaction.new(500.00, "07-17-2018") }
+  let(:credit_transaction) { Transaction.new(500.00, "07-17-2018", :credit) }
+  let(:debit_transaction) { Transaction.new(500.00, "07-17-2018", :debit) }
 
-  context '#transactions' do
+  describe '#transactions' do
+    context 'when transaction is credit' do
+      it 'credits money into an account' do
+        account.credit(credit_transaction)
 
-    it 'credits money into an account' do
-
-      account.credit(transaction)
-
-      expect(account.account_summary).to eq [transaction, balance: 500.00]
-      expect(account.balance).to eq transaction.amount
+        expect(account.account_summary).to eq [credit_transaction, 500.00]
+        expect(account.balance).to eq credit_transaction.amount
+      end
     end
 
-    it 'debits money from an account' do
+    context 'when transaction is debit' do
+      it 'debits money from an account' do
+        account.debit(debit_transaction)
 
-      account.debit(transaction)
-
-      expect(account.account_summary).to eq [transaction, balance: -500.00]
-      expect(account.balance).to eq -transaction.amount
+        expect(account.account_summary).to eq [debit_transaction, -500.00]
+        expect(account.balance).to eq debit_transaction.amount
+      end
     end
-
   end
 end

@@ -3,7 +3,7 @@ require 'printer'
 
 class Account
 
-  attr_reader :account_summary, :balance
+  attr_accessor :account_summary, :balance
 
   def initialize(printer = Printer.new)
     @printer = printer
@@ -12,13 +12,14 @@ class Account
   end
 
   def credit(transaction)
-    @balance += transaction.amount
-    @account_summary.push(transaction, balance: @balance)
+    self.balance += transaction.amount
+    account_summary.push(transaction, balance)
   end
 
   def debit(transaction)
-    @balance -= transaction.amount
-    @account_summary.push(transaction, balance: @balance)
+    self.balance -= transaction.amount
+    transaction.amount = (-transaction.amount)
+    account_summary.push(transaction, balance)
   end
 
 end

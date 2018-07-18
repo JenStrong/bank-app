@@ -2,11 +2,12 @@ require 'pry'
 
 class Transaction
 
-  attr_reader :amount
+  attr_accessor :amount
 
-  def initialize(amount, date = Time.new.strftime("%m/%d/%Y"))
+  def initialize(amount, date = Time.new, type)
     @amount = amount
     @date = date
+    @type = type
   end
 
 end
