@@ -71,3 +71,6 @@ date || credit || debit || balance
 12/04/2018 || || 400.00 || 100.00
 10/04/2018 || 500.00 || || 500.00 => nil
 ```
+
+
+![alt text](https://github.com/JenStrong/bank-tech-test/blob/master/public/out.gif)
