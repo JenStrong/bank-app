@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'formatter'
 
 class Account
@@ -11,7 +12,7 @@ class Account
   end
 
   def credit(transaction)
-    @balance += transaction.amount
+    @balance += balance + transaction.amount
     account_summary.push([transaction, balance])
   end
 
@@ -22,6 +23,10 @@ class Account
 
   def statement
     formatter.output_summary(account_summary)
+  end
+
+  def add_balance_to_transaction
+
   end
 
 end

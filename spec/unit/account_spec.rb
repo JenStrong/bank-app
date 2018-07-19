@@ -11,7 +11,7 @@ describe Account do
 
       before do
         allow(credit_transaction).to receive(:amount).and_return(500.00)
-        allow(credit_transaction).to receive(:date).and_return("07-17-2018")
+        allow(credit_transaction).to receive(:date).and_return("07/17/2018")
         allow(credit_transaction).to receive(:type).and_return(:credit)
       end
 
@@ -27,7 +27,7 @@ describe Account do
 
       before do
         allow(debit_transaction).to receive(:amount).and_return(500.00)
-        allow(debit_transaction).to receive(:date).and_return("07-17-2018")
+        allow(debit_transaction).to receive(:date).and_return("07/17/2018")
         allow(debit_transaction).to receive(:type).and_return(:debit)
       end
 

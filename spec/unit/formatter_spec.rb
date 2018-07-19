@@ -3,8 +3,14 @@ require 'transaction'
 
 describe Formatter do
   let(:formatter) { described_class.new }
-  let(:credit_transaction) { Transaction.new(500.00, "10/08/2018", :credit) }
+  let(:credit_transaction) { instance_double('Transaction') }
   let(:account_summary) { [[credit_transaction, 500.00]] }
+
+  before do
+    allow(credit_transaction).to receive(:amount).and_return(500.00)
+    allow(credit_transaction).to receive(:date).and_return("10/08/2018")
+    allow(credit_transaction).to receive(:type).and_return(:credit)
+  end
 
   it 'formats the account summary' do
 
