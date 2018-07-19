@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'formatter'
 
 class Account
@@ -23,10 +22,6 @@ class Account
 
   def statement
     formatter.output_summary(account_summary)
-  end
-
-  def add_balance_to_transaction
-
   end
 
 end
