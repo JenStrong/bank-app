@@ -2,7 +2,7 @@ require_relative 'formatter'
 
 class Account
 
-  attr_accessor :formatter, :account_summary, :balance
+  attr_reader :formatter, :account_summary, :balance
 
   def initialize(formatter = Formatter.new)
     @formatter = formatter
@@ -11,12 +11,12 @@ class Account
   end
 
   def credit(transaction)
-    self.balance += transaction.amount
+    @balance += transaction.amount
     account_summary.push([transaction, balance])
   end
 
   def debit(transaction)
-    self.balance -= transaction.amount
+    @balance -= transaction.amount
     account_summary.push([transaction, balance])
   end
 
