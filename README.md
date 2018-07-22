@@ -1,7 +1,7 @@
 # Bank Tech Test
 
 ## Overview
-This is a CLI Ruby app that generates a bank account summary table based on the deposits and withdrawls a user makes to their account. This project is a sample tech test used to demonstrate my ability to:
+This is a CLI Ruby app that generates a bank account summary table based on the deposits and withdrawls a user makes to their account. This project was used to practice my ability to:
   1. Write code others can easily understand
   2. Build with objects
   3. Test-drive my code
@@ -13,8 +13,8 @@ This is a CLI Ruby app that generates a bank account summary table based on the 
   Use Ruby 2.5.1
 ```
  $ git clone git@github.com:JenStrong/tech-test.git
-    $ cd tech-test
-    $ bundle install
+ $ cd tech-test
+ $ bundle install
 ```
 
 ## Process
