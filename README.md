@@ -1,4 +1,4 @@
-# Bank Tech Test
+# Banking App
 
 ## Overview
 This is a CLI Ruby app that generates a bank account summary table based on the deposits and withdrawls a user makes to their account. This project was used to practice my ability to:

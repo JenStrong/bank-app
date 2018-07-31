@@ -1,6 +1,8 @@
+require 'pry'
 require_relative 'formatter'
 
 class Account
+  TransactionWithNewBalance = Struct.new(:amount, :date, :type, :balance)
 
   attr_reader :formatter, :account_summary, :balance
 
@@ -11,13 +13,23 @@ class Account
   end
 
   def credit(transaction)
-    @balance += balance + transaction.amount
-    account_summary.push([transaction, balance])
+    transaction_summary = TransactionWithNewBalance.new(
+      transaction.amount,
+      transaction.date,
+      transaction.type,
+      @balance += transaction.amount
+    )
+    account_summary.push(transaction_summary)
   end
 
   def debit(transaction)
-    @balance -= transaction.amount
-    account_summary.push([transaction, balance])
+    transaction_summary = TransactionWithNewBalance.new(
+      transaction.amount,
+      transaction.date,
+      transaction.type,
+      @balance -= transaction.amount
+    )
+    account_summary.push(transaction_summary)
   end
 
   def statement
