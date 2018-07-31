@@ -1,28 +1,29 @@
 class Formatter
   def output_summary(account_summary)
-    summary = "date || credit || debit || balance\n"
+    @summary = "date || credit || debit || balance\n"
 
-    account_summary.reverse_each do |transaction|
-      date = transaction.first.date
-      amount = format_number(transaction.first.amount)
-      balance = format_number(transaction.last)
-      type = transaction.first.type
-
-      case type
-      when :credit
-        summary += "#{date} || #{amount} || || #{balance}\n"
-      when :debit
-        summary += "#{date} || || #{amount} || #{balance}\n"
-      end
-      
+    account_summary.reverse_each do |transaction_with_new_balance|
+      append_to_summary(transaction_with_new_balance)
     end
-    summary.chomp("\n")
+
+    @summary.chomp("\n")
   end
 
   private
 
-  def format_number(amount)
-    sprintf('%.2f', amount)
+  def append_to_summary(line)
+    amount = format(line.amount)
+    balance = format(line.balance)
+
+    case line.type
+    when :credit
+      @summary += "#{line.date} || #{amount} || || #{balance}\n"
+    when :debit
+      @summary += "#{line.date} || || #{amount} || #{balance}\n"
+    end
   end
 
+  def format(number)
+    sprintf('%.2f', number)
+  end
 end

@@ -3,13 +3,14 @@ require 'transaction'
 
 describe Formatter do
   let(:formatter) { described_class.new }
-  let(:credit_transaction) { instance_double('Transaction') }
-  let(:account_summary) { [[credit_transaction, 500.00]] }
+  let(:transaction_with_new_balance) { instance_double('TransactionWithNewBalance') }
+  let(:account_summary) { [transaction_with_new_balance] }
 
   before do
-    allow(credit_transaction).to receive(:amount).and_return(500.00)
-    allow(credit_transaction).to receive(:date).and_return("10/08/2018")
-    allow(credit_transaction).to receive(:type).and_return(:credit)
+    allow(transaction_with_new_balance).to receive(:amount).and_return(500.00)
+    allow(transaction_with_new_balance).to receive(:date).and_return("10/08/2018")
+    allow(transaction_with_new_balance).to receive(:type).and_return(:credit)
+    allow(transaction_with_new_balance).to receive(:balance).and_return(500.00)
   end
 
   it 'formats the account summary' do
